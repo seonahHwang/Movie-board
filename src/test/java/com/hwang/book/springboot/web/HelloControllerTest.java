@@ -7,9 +7,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 // static이 붙는 이유는?
 
 @RunWith(SpringRunner.class)
@@ -31,6 +31,22 @@ public class HelloControllerTest {
         mvc.perform(get("/hello")) //체이닝이 지원되어 아래와 같이 여러 검증 기능을 이어서 선언 가능
                 .andExpect(status().isOk()) //mvc.perform의 결과 검증. HTTP Header의 Status를 검증. 200인지 아닌지 검증
                 .andExpect(content().string(hello)); //응답 본문의 내용 검증
+    }
+
+    @Test
+    public void hellDto가_리턴된다() throws Exception{
+        String name = "hello";
+        int amount = 1000;
+        mvc.perform(get ("/hello/dto")
+                .param("name",name) // param : api 테스트할 때 사용될 요청 파라미터 설정, 값은 String만 허용,
+                // 숫자날짜 등의 데이터도 등록할 때는 문자열로 변경해야만 가능
+                .param("amount", String.valueOf(amount)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                //jsonPath : JSON 응답값을 필드별로 검증할 수 있는 메소드
+                //$를 기준으로 필드명을 명시
+                .andExpect(jsonPath("$.amount", is(amount)));
+
     }
 
 }
