@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-// static이 붙는 이유는?
+/* static이 붙는 이유는? => 클래스의 이름 없이 바로 메소드로 접근 가능
+Ex) Math.abs()를 사용할 때 static을 붙여서 import하면 바로 클래스명 없이 abs()로 사용가능
+*/
 
 @RunWith(SpringRunner.class)
 //테스트를 진행할 때 JUnit에 내장된 실행자 외에 SpringRunner라는 스프링  실행자를 사용하겠다.
 // 즉, 스프링 부트 테스트와 Junit 사이에 연결자 역할을 한다.
 @WebMvcTest
-//여러 스프르이 테스트 어노테이션 중, web에 집중할 수 있는 어노테이션
+//여러 스프링 테스트 어노테이션 중, web에 집중할 수 있는 어노테이션
 //선언할 경우 @Controller, @ControllerAdvice 등을 사용할 수 있고, @Service, @Component 등은 사용 불가
 public class HelloControllerTest {
     @Autowired
