@@ -1,5 +1,6 @@
 package com.hwang.book.springboot.domain.posts;
 
+import com.hwang.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.*;
    Entity class에는 절대 setter를 생성하지 않음. 해당 클래스의 인스턴스 값들이 언제 어디서 변해야하는지
    코드상으로 명확하게 구분할 수가 없어, 차후에 기능 변경시 복잡해짐
  */
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id //해당 테이블의 PK필드를 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK의 생성 규칙을 나타냄
     private Long id;
