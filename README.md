@@ -34,3 +34,11 @@
 9. Entity 클래스 Request / Response 클래스로 사용 금지  
 10. 더티체킹  
 11. JPA Auditing  
+
+### [머스테치로 화면 구성하기](https://hwang11.github.io/spring-boot/2020/02/09/spring-boot-4%EC%9E%A5-%EB%A8%B8%EC%8A%A4%ED%85%8C%EC%B9%98%EB%A1%9C-%ED%99%94%EB%A9%B4-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0/)  
+1. 서버 템플릿 엔진과 클라이언트 템플릿 엔진의 차이  
+2. 머스테치의 기본 사용 방법  
+3. Model  
+4. js/css 선언 위치를 다르게 하여 웹사이트의 로딩 속도를 향상하는 방법  
+5. js 객체를 이용하여 브라우저의 전역 변수 충돌 문제를 회피하는 방법  
+6. SpringDataJpa 쿼리 작성  
