@@ -36,6 +36,7 @@ dependencies{
     이 프로젝트에서는 JPA의 테스트, 로컬 환경에서의 구동에서 사용할 예정
     */
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     annotationProcessor 'org.projectlombok:lombok'
 }
