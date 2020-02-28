@@ -42,3 +42,7 @@
 4. js/css 선언 위치를 다르게 하여 웹사이트의 로딩 속도를 향상하는 방법  
 5. js 객체를 이용하여 브라우저의 전역 변수 충돌 문제를 회피하는 방법  
 6. SpringDataJpa 쿼리 작성  
+
+### [스프링 시큐리티와 OAuth 2.0으로 로그인 기능 구현](https://hwang11.github.io/spring-boot/2020/02/14/spring-boot-5%EC%9E%A5-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0%EC%99%80-OAuth-2.0%EC%9C%BC%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-(2)/)  
+
+### [AWS 서버](https://hwang11.github.io/spring-boot/2020/02/26/AWS-AWS-%EC%84%9C%EB%B2%84-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95-AWS-EC2/)
