@@ -31,15 +31,15 @@ deploy:
     wait-until-deployed: true
 
   - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY # travis repo setting에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: hsa-springboot-build
-    key: freelec-springboot-webservice.zip
-    bundle_type: zip
-    application: freelec-springboot-webservice
-    deployment_group: freelec-springboot-webservice-group
-    region: ap-northest-2
-    wait-until-deployed: true
+      access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+      secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+      bucket: hsa-springboot-build # S3 버킷
+      key: freelec-springboot-webservice.zip
+      bundle_type: zip
+      application: freelec-springboot-webservice
+      deployment_group: freelec-springboot-webservice-group
+      region: ap-northeast-2
+      wait-until-deployed: true
 
 
 # CI 실행 완료 시 메일로 알람
