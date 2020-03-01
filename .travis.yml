@@ -32,7 +32,7 @@ deploy:
 
   - provider: codedeploy
       access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-      secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+      secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값.
       bucket: hsa-springboot-build # S3 버킷
       key: freelec-springboot-webservice.zip
       bundle_type: zip
