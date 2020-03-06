@@ -1,4 +1,4 @@
 package com.hwang.book.springboot.web.dto;
 
-public abstract class ResultDto {
+public abstract class SearchResultDto {
 }

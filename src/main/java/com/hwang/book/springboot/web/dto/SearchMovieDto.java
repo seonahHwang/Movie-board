@@ -1,6 +1,6 @@
 package com.hwang.book.springboot.web.dto;
 
-import com.example.openapi.repository.Movie;
+import com.hwang.book.springboot.domain.search.Movie;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,10 +9,10 @@ import java.util.List;
 
 @Getter
 @Setter
-public class MovieDto extends ResultDto {
+public class SearchMovieDto extends SearchResultDto {
     private List<Item> items;
 
-    public MovieDto(Movie movie){
+    public SearchMovieDto(Movie movie){
         List<Movie.Item> li = movie.getItems();
         this.items = new LinkedList<Item>();
         li.forEach(i -> this.items.add(new Item(i)));

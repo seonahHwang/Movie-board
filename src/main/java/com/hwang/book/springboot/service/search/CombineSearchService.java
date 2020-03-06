@@ -1,8 +1,9 @@
 package com.hwang.book.springboot.service.search;
 
-import com.example.openapi.dto.BlogDTO;
-import com.example.openapi.dto.MovieDTO;
-import com.example.openapi.dto.ResultDTO;
+
+import com.hwang.book.springboot.web.dto.SearchBlogDto;
+import com.hwang.book.springboot.web.dto.SearchMovieDto;
+import com.hwang.book.springboot.web.dto.SearchResultDto;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -13,12 +14,12 @@ import java.util.stream.Collectors;
 public class CombineSearchService {
     private static final int LIMIT_ITEM_COUNT = 5;
 
-    public List<ResultDTO> combine(BlogDTO blogDTO, MovieDTO movieDTO){
-        List<ResultDTO> results = new LinkedList<ResultDTO>();
-        blogDTO.setItems(blogDTO.getItems().stream().limit(LIMIT_ITEM_COUNT).collect(Collectors.toList()));
-        movieDTO.setItems(movieDTO.getItems().stream().limit(LIMIT_ITEM_COUNT).collect(Collectors.toList()));
-        results.add(blogDTO);
-        results.add(movieDTO);
+    public List<SearchResultDto> combine(SearchBlogDto searchBlogDto, SearchMovieDto searchMovieDto){
+        List<SearchResultDto> results = new LinkedList<SearchResultDto>();
+        searchBlogDto.setItems(searchBlogDto.getItems().stream().limit(LIMIT_ITEM_COUNT).collect(Collectors.toList()));
+        searchMovieDto.setItems(searchMovieDto.getItems().stream().limit(LIMIT_ITEM_COUNT).collect(Collectors.toList()));
+        results.add(searchBlogDto);
+        results.add(searchMovieDto);
         return results;
     }
 }
