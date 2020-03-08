@@ -2,14 +2,16 @@ package com.hwang.book.springboot.config;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
+//@EnableConfigurationProperties({SearchProperties.class})
 @Configuration
 public class ApiConfiguration {
-    @Bean
+    @Bean //restTemplate를 bean으로 관리하기 위해서 Config에 bean으로 등록해줌
     public RestTemplate restTemplate(){
         HttpComponentsClientHttpRequestFactory factory
                 = new HttpComponentsClientHttpRequestFactory();
