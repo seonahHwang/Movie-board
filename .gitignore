@@ -3,5 +3,5 @@
 .idea
 application-oauth.properties
 application-local.properties
-/develop
-/production
+develop/
+production/
