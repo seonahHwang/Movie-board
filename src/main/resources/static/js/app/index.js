@@ -12,6 +12,9 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+        $('btn-search').on('click', function () {
+            _this.search();
+        });
     },
     save : function () {
         var data = {
@@ -68,8 +71,23 @@ var main = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
-    }
+    },
+    search : function(){
+        var data = {
+            movie : $('movie').var()
+        };
 
+        $.ajax({
+            type: 'GET',
+            url: '/api/search?='+movie,
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8'
+        }).done(function(){
+            window.location.href = '/posts/save'
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        });
+    }
 };
 
 main.init();
