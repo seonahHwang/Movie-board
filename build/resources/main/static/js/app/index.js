@@ -12,6 +12,9 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+        // $('#btn-search').on('click', function () {
+        //     _this.search();
+        // });
     },
     save : function () {
         var data = {
@@ -68,8 +71,26 @@ var main = {
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
-    }
-
+    },
+    // search : function(){
+    //     var movie = $('#movie').val();
+    //
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: '/',
+    //         dataType: 'json',
+    //         contentType:'application/json; charset=utf-8'
+    //
+    //     }).done(function(){
+    //         alert('검색 .');
+    //         //location.href = "search-board.mustache";
+    //         //window.location.href = '/posts/save'
+    //         window.location.href = '/';
+    //     }).fail(function(error){
+    //         alert('실패. '+movie);
+    //         alert(JSON.stringify(error));
+    //     });
+    // }
 };
 
 main.init();

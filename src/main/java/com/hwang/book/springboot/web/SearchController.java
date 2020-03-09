@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RequiredArgsConstructor
-//@Controller
-@RestController
+@Controller
+//@RestController
 @RequestMapping("/api")
 public class SearchController {
     private final SearchService searchService;
@@ -30,12 +30,17 @@ public class SearchController {
     private final ProfileDevelop developProperties;
 
     @GetMapping("/search")
-    public List<SearchResultDto> search(@RequestParam(name = "query") String query){
+    public String search(@RequestParam(name = "query") String query, Model model){
         Blog blog = (Blog) searchService.search(developProperties.getBlogUrl(), query, Blog.class);
-        SearchBlogDto SearchBlogDto = new SearchBlogDto(blog);
+        SearchBlogDto searchBlogDto = new SearchBlogDto(blog);
         Movie movie = (Movie) searchService.search(developProperties.getMovieUrl(), query, Movie.class);
-        SearchMovieDto SearchMovieDto = new SearchMovieDto(movie);
-        return combineSearchService.combine(SearchBlogDto,movieSortService.sort(SearchMovieDto));
+        SearchMovieDto searchMovieDto = new SearchMovieDto(movie);
+        List<SearchResultDto> searchResultDtoList = combineSearchService.combine(searchBlogDto,movieSortService.sort(searchMovieDto));
+        searchBlogDto = (SearchBlogDto) searchResultDtoList.get(0);
+        searchMovieDto = (SearchMovieDto) searchResultDtoList.get(1);
+        model.addAttribute("blogItems", searchBlogDto.getItems());
+        model.addAttribute("movieItems",searchMovieDto.getItems());
+        return "search-board";
     }
 
 //    @GetMapping("/blog")
@@ -46,10 +51,10 @@ public class SearchController {
 //        return "index";
 //    }
 
-    @GetMapping("/movie")
-    public SearchMovieDto movieSearch(@RequestParam(name = "query") String query){
-        Movie movie = (Movie) searchService.search(developProperties.getMovieUrl(), query, Movie.class);
-        SearchMovieDto SearchMovieDto = new SearchMovieDto(movie);
-        return movieSortService.sort(SearchMovieDto);
-    }
+//    @GetMapping("/movie")
+//    public SearchMovieDto movieSearch(@RequestParam(name = "query") String query){
+//        Movie movie = (Movie) searchService.search(developProperties.getMovieUrl(), query, Movie.class);
+//        SearchMovieDto SearchMovieDto = new SearchMovieDto(movie);
+//        return movieSortService.sort(SearchMovieDto);
+//    }
 }

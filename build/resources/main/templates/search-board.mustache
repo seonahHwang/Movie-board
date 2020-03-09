@@ -1,0 +1,45 @@
+{{>layout/header}}
+<h2>영화 검색 결과</h2>
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <th>영화제목</th>
+        <th>개봉일</th>
+        <th>감독</th>
+        <th>배우</th>
+        <th>평점</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#movieItems}}
+        <tr>
+            <td><a href="{{link}}"> {{title}}</a></td>
+            <td>{{pubDate}}</td>
+            <td>{{director}}</td>
+            <td>{{actor}}</td>
+            <td>{{userRating}}</td>
+        </tr>
+    {{/movieItems}}
+    </tbody>
+</table>
+<br>
+<h2>블로그 검색 결과</h2>
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr class="row">
+        <th class="col-md-3">제목</th>
+        <th class="col-md-2">블로그명</th>
+        <th class="col-md-7">설명</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#blogItems}}
+        <tr class="row">
+            <td class="col-md-3"><a href="{{link}}">{{title}}</a></td>
+            <td class="col-md-2"><a href="{{bloggerlink}}">{{bloggername}}</a></td>
+            <td class="col-md-7">{{description}}</td>
+        </tr>
+    {{/blogItems}}
+    </tbody>
+</table>
+{{>layout/footer}}

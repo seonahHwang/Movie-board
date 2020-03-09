@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 public class SearchMovieDto extends SearchResultDto {
-    private List<Item> items;
+    private List<SearchMovieDto.Item> items;
 
     public SearchMovieDto(Movie movie){
         List<Movie.Item> li = movie.getItems();
@@ -23,13 +23,19 @@ public class SearchMovieDto extends SearchResultDto {
     public static class Item{
         public Item(Movie.Item item){
             this.image = item.getImage();
-            this.title = item.getTitle();
-            this.link = item.getLink();
-            this.subtitle = item.getSubtitle();
-            this.pubDate = item.getPubDate();
-            this.director = item.getDirector();
-            this.actor = item.getActor();
-            this.userRating = item.getUserRating();
+            this.title = item.getTitle().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.title = this.title.replaceAll("&lt(;)?(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?&gt(;)?", "");
+            this.link = item.getLink().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.subtitle = item.getSubtitle().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.subtitle = this.subtitle.replaceAll("&lt(;)?(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?&gt(;)?", "");
+            this.pubDate = item.getPubDate().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.pubDate = this.pubDate.replaceAll("&lt(;)?(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?&gt(;)?", "");
+            this.director = item.getDirector().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.director = this.director.replaceAll("&lt(;)?(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?&gt(;)?", "");
+            this.actor = item.getActor().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.actor = this.actor.replaceAll("&lt(;)?(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?&gt(;)?", "");
+            this.userRating = item.getUserRating().replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+            this.userRating = this.userRating.replaceAll("&lt(;)?(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?&gt(;)?", "");
         }
         private String title;
         private String link;
