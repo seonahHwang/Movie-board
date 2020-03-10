@@ -1,5 +1,7 @@
 package com.hwang.book.springboot.web;
 
+import com.hwang.book.springboot.config.auth.LoginUser;
+import com.hwang.book.springboot.config.auth.dto.SessionUser;
 import com.hwang.book.springboot.service.posts.PostsService;
 import com.hwang.book.springboot.web.dto.PostsResponseDto;
 import com.hwang.book.springboot.web.dto.PostsSaveRequestDto;
@@ -21,7 +23,15 @@ public class PostsApiController {
     //@PostAuthorize("isAuthenticated() and ( returnObject.name == principal.name )")
     //@PostAuthorize("isAuthenticated() and (  == principal. )")
     @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
+    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto, @LoginUser SessionUser user){
+        PostsResponseDto responseDto = postsService.findById(id);
+//        if(responseDto.getAuthor().equals(user.getName())){
+//            return postsService.update(id, requestDto);
+//        }
+//        else {
+//            //에러처리
+//            return "권한없음 ";
+//        }
         return postsService.update(id, requestDto);
     }
 
