@@ -5,6 +5,7 @@ import com.hwang.book.springboot.web.dto.PostsResponseDto;
 import com.hwang.book.springboot.web.dto.PostsSaveRequestDto;
 import com.hwang.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -17,6 +18,8 @@ public class PostsApiController {
         return postsService.save(requestDto);
     }
 
+    //@PostAuthorize("isAuthenticated() and ( returnObject.name == principal.name )")
+    //@PostAuthorize("isAuthenticated() and (  == principal. )")
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto){
         return postsService.update(id, requestDto);

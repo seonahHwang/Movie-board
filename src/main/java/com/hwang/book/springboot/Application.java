@@ -12,7 +12,6 @@ import java.util.Arrays;
 //
 @SpringBootApplication
 public class Application { //메인클래스, 내장 WAS 실행
-    static ApplicationContext ctx;
     public static void main(String[] args) {
         String profile = System.getProperty("spring.profiles.active");
         if(profile == null) {
