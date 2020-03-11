@@ -1,8 +1,17 @@
 package com.hwang.book.springboot.exception;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.FORBIDDEN)
+@Getter
+@Setter
+@ResponseStatus(value = HttpStatus.FORBIDDEN, reason="need authority")
 public class ForbiddenException extends RuntimeException {
+    private String message;
+    private String reason;
+    public ForbiddenException(String message){
+        this.message = message;
+    }
 }
