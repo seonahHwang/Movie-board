@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Getter
 @Setter
-@ResponseStatus(value = HttpStatus.FORBIDDEN, reason="need authority")
+@ResponseStatus(value = HttpStatus.FORBIDDEN, reason="forbidden")
 public class ForbiddenException extends RuntimeException {
     private String message;
     private String reason;

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ForbiddenException.class)
-    @ResponseStatus(value = HttpStatus.FORBIDDEN, reason="need authority")
+    @ResponseStatus(value = HttpStatus.FORBIDDEN, reason="forbidden")
     public void forbiddenException(ForbiddenException ex,
                                 HttpServletResponse response) { //에러 발생하면 어떻게 처리할지?
         System.out.println("권한이 없습니다");
