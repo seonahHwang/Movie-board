@@ -31,7 +31,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
         // 현재 로그인 진행 중인 서비스를 구분하는 코드. 이후 네이버 로그인 연동 시 네이버 로그인인지, 구글로그인인지 구분하기 위해 사용
-
         String userNameAttributeName = userRequest.
                 getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint().getUserNameAttributeName();
