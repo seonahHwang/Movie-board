@@ -22,7 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 //@RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class SearchController {
     private final SearchService searchService;
     private final CombineSearchService combineSearchService;
