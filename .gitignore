@@ -5,3 +5,4 @@ application-oauth.properties
 application-local.properties
 develop/
 production/
+test/resources/application.properties

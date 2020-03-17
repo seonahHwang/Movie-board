@@ -39,6 +39,7 @@ public class PostRepositoryTest {
                 .title(title)
                 .content(content)
                 .author("tjsdk2769@gmail.com")
+                .movie_title("movie")
                 .build());
 
         //when
@@ -58,6 +59,7 @@ public class PostRepositoryTest {
                 .title("title")
                 .content("content")
                 .author("author")
+                .movie_title("movie")
                 .build());
 
         //when

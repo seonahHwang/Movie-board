@@ -71,6 +71,7 @@ public class PostsApiControllerTest {
                 .title(title)
                 .content(content)
                 .author("author")
+                .movie_title("movie")
                 .build();
 
         String url = "http://localhost:" + port + "/api/v1/posts";
@@ -95,6 +96,7 @@ public class PostsApiControllerTest {
                 .title("title")
                 .content("content")
                 .author("author")
+                .movie_title("movie")
                 .build());
 
         Long updateId = savedPosts.getId();
