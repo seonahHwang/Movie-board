@@ -1,6 +1,6 @@
 package com.hwang.book.springboot.web;
 
-import com.hwang.book.springboot.config.profile.ProfileDevelop;
+import com.hwang.book.springboot.config.SearchProperties;
 import com.hwang.book.springboot.domain.search.Blog;
 import com.hwang.book.springboot.domain.search.Movie;
 import com.hwang.book.springboot.service.search.CombineSearchService;
@@ -27,13 +27,13 @@ public class SearchController {
     private final SearchService searchService;
     private final CombineSearchService combineSearchService;
     private final MovieSortService movieSortService;
-    private final ProfileDevelop developProperties;
+    private final SearchProperties searchProperties;
 
     @GetMapping("/search")
     public String search(@RequestParam(name = "query") String query, Model model){
-        Blog blog = (Blog) searchService.search(developProperties.getBlogUrl(), query, Blog.class);
+        Blog blog = (Blog) searchService.search(searchProperties.getBlogUrl(), query, Blog.class);
         SearchBlogDto searchBlogDto = new SearchBlogDto(blog);
-        Movie movie = (Movie) searchService.search(developProperties.getMovieUrl(), query, Movie.class);
+        Movie movie = (Movie) searchService.search(searchProperties.getMovieUrl(), query, Movie.class);
         SearchMovieDto searchMovieDto = new SearchMovieDto(movie);
         List<SearchResultDto> searchResultDtoList = combineSearchService.combine(searchBlogDto,movieSortService.sort(searchMovieDto));
         searchBlogDto = (SearchBlogDto) searchResultDtoList.get(0);

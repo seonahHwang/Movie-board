@@ -1,15 +1,13 @@
-package com.hwang.book.springboot.config.profile;
+package com.hwang.book.springboot.config;
+
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @Getter
-@PropertySource({"classpath:develop/application.properties"})
-public class ProfileDevelop{
+public class SearchProperties {
     @Value("${naver.openapi.blog-url}")
     private String blogUrl;
     @Value("${naver.openapi.movie-url}")
