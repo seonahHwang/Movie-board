@@ -7,10 +7,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@Profile(value="develop") //현재 profile값을 가지고 올 수 있도록 하기
 @Getter
 @PropertySource({"classpath:develop/application.properties"})
-public class ProfileDevelop {
+public class ProfileDevelop{
     @Value("${naver.openapi.blog-url}")
     private String blogUrl;
     @Value("${naver.openapi.movie-url}")

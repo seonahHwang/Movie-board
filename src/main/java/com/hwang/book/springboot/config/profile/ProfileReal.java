@@ -8,8 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Getter
 @Configuration
-@Profile(value="real")
-@PropertySource({"classpath:production/application-oauth.properties"})
+@PropertySource({"classpath:production/application.properties"})
 public class ProfileReal {
     @Value("${naver.openapi.blog-url}")
     private String blogUrl;
