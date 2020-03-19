@@ -35,9 +35,6 @@ AWS
 
 - EC2
 - RDS
-- CodeDeploy
-
-Travis 
 
 ## ✏️ What I Learned
 
@@ -45,7 +42,7 @@ Travis
 
 네이버 API 사용 방법 
 
-생성자로 DI 주입
+DI 주입
 
 JPA Auditing 
 
